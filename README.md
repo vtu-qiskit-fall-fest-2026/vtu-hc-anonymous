@@ -307,6 +307,6 @@ Released under the [MIT License](LICENSE). See `LICENSE` for details.
 **Anonymous** · Team ID `VTU-QFF-HC-0023` · Tier `Both`
 · Built with ⚛️ Qiskit for the VTU-QFF Hackathon
 
-[⬆ Back to Top](#Anonymous)
+[⬆ Back to Top](#anonymous)
 
 </div>
