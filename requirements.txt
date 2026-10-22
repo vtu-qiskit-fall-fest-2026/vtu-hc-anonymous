@@ -1,21 +1,19 @@
-# Core quantum SDK
-qiskit>=1.0,<2.0
-qiskit-ibm-runtime>=0.30
+# Q-Lithos: Hybrid Quantum-Classical Simulation Engine for Battery Materials
+# Requirements pinned for Python 3.10 - 3.11
 
-# Local simulator
-qiskit-aer>=0.15
+qiskit>=1.0.0,<2.0.0
+qiskit-aer>=0.14.0,<=0.18.0
+qiskit-algorithms>=0.3.0,<=0.4.0
+qiskit-nature>=0.7.0,<=0.8.0
+numpy>=1.24.0,<=2.4.6
+scipy>=1.10.0,<=1.17.1
+matplotlib>=3.7.0,<=3.11.2
+plotly>=5.18.0,<=7.1.0
+streamlit>=1.30.0,<=1.66.1
+pytest>=7.4.0,<=9.1.1
+python-dotenv>=1.0.0
 
-# Optional add-ons -- remove the ones you do not use
-qiskit-algorithms>=0.3
-qiskit-optimization>=0.6
-qiskit-nature>=0.7
-
-# Numerics, data and plotting
-numpy>=1.26
-scipy>=1.11
-pandas>=2.1
-matplotlib>=3.8
-scikit-learn>=1.4
-
-# Testing
-pytest>=8.0
+# Quantum chemistry driver
+# PySCF on Unix/macOS; PyQInt backend on Windows
+pyscf>=2.0.0; sys_platform != "win32"
+pyqint>=1.4.0; sys_platform == "win32"
