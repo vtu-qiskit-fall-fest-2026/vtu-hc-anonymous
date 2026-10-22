@@ -76,17 +76,6 @@
 
 ---
 
-## 🖥️ Demo Screenshots
-
-The screenshots below show the current Streamlit prototype. The simulation uses a local ideal statevector simulator; they are not evidence of execution on physical IBM Quantum hardware. Displayed numerical values should be treated as prototype outputs until the saved benchmark data and metric calculations have been validated.
-
-### Dashboard overview
-
-![Q-Lithos dashboard overview showing molecule selection, summary metrics, and navigation](docs/images/q-lithos-overview.png)
-
-### LiH quantum simulation
-
-![LiH potential energy curve and VQE comparison with a classical exact-diagonalization reference](docs/images/q-lithos-lih-simulation.png)
 
 ## 🧩 Approach and Architecture
 
