@@ -81,16 +81,15 @@
 
 ```mermaid
 flowchart TD
-    A["Select molecule and bond length"] --> B["Build molecular electronic-structure problem"]
-    B --> C["PySCF driver / configured molecular data"]
-    C --> D["Choose active space and map Hamiltonian to qubits"]
-    D --> E["Prepare Hartree-Fock reference and UCCSD ansatz"]
-    E --> F["VQE optimization with local StatevectorEstimator"]
-    D --> G["Classical exact diagonalization reference"]
-    F --> H["Compare energies and calculate error"]
-    G --> H
-    H --> I["Potential energy curve and molecular descriptors"]
-    I --> J["Streamlit dashboard and qualified battery-relevance discussion"]
+    A["1. Input: Select molecule and bond length"] --> B["2. Preprocessing: Build molecular model"]
+    B --> C["3. Qubit Mapping: Convert molecular Hamiltonian into qubits"]
+    C --> D["4. VQE: Hartree-Fock state + UCCSD ansatz"]
+    D --> E["5. Optimization: Find the lowest estimated energy"]
+    C --> F["6. Classical Reference: Exact diagonalization"]
+    E --> G["7. Comparison: Calculate VQE energy error"]
+    F --> G
+    G --> H["8. Results: Energy curves, molecular metrics, and limitations"]
+    H --> I["9. Dashboard: Interactive Streamlit visualization"]
 ```
 
 1. **Input:** A supported diatomic molecule and a selected or scanned bond distance.
