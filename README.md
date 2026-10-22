@@ -173,20 +173,24 @@ The calculations are for **isolated diatomic molecules**, not periodic solids, f
 
 ## 📊 Benchmarking and Accuracy
 
-Q-Lithos compares the energy found by VQE with a classical exact-diagonalization result for the same small model and bond distance. This checks how closely the VQE calculation matches that reference; it does **not** prove that the model perfectly describes a real molecule or battery.
+Q-Lithos compares the energy calculated by the Variational Quantum Eigensolver (VQE) with a classical exact-diagonalization reference for the same molecular model and bond distance.
 
-**Chemical accuracy** is a commonly used target of about **1.6 mHa** (1 kcal/mol). To say a whole scan meets this target, every tested bond distance must have an absolute VQE error below the threshold. A low average error alone is not enough.
+This comparison helps us understand how closely VQE matches the classical reference.
 
-The project ZIP contains saved scan results, but they may have been created before recent metric fixes. Therefore, the values below are not presented as newly verified benchmark results. The saved Li₂ scan includes an error of about **4.02 mHa** at a stretched bond distance, which is above the chemical-accuracy target. The other saved results also need to be checked before final numbers are quoted.
+### What is Chemical Accuracy?
 
-| Molecule | What can be said responsibly right now? |
-| :--- | :--- |
-| LiH | Saved scan data exists; final accuracy claim needs cache validation. |
-| NaH | Saved scan data exists; final accuracy claim needs cache validation. |
-| NaF | Saved scan data exists; final accuracy claim needs cache validation. |
-| Li₂ | Saved scan includes an error above the chemical-accuracy target at a stretched bond distance. |
+Chemical accuracy is a commonly used target of approximately **1.6 millihartree (mHa)**, equivalent to **1 kcal/mol**.
 
-Do not describe all molecules as meeting chemical accuracy unless the current code, saved data, and test results support that claim.
+To meet this target across an entire bond-length scan, the absolute energy error must remain below the threshold at every tested distance. A low average error alone does not guarantee this.
+
+### Current Results and Validation
+
+- **LiH, NaH, and NaF:** Saved benchmark results are available, but they need validation against the current code and metric definitions before final accuracy claims can be made.
+- **Li₂:** The saved scan includes an error of approximately **4.02 mHa** at a stretched bond distance, exceeding the chemical-accuracy target.
+
+The saved results may be outdated because metric calculations have been revised. They should be checked or regenerated before reporting final benchmark values.
+
+**Important:** These results compare two calculations for a simplified molecular model. They do not prove that the model perfectly describes real molecules or predicts battery performance.
 
 ---
 
