@@ -1,20 +1,28 @@
-# ⚡ Q-Lithos: Hybrid Quantum-Classical Simulation Engine for Battery Materials
 
 <div align="center">
 
-**Anonymous** · **Team ID: `VTU-QFF-HC-0023`** · **Tier: Both**
+# Anonymous
 
-Hackathon track: **Quantum Chemistry and Sensing**  
-An interactive prototype for exploring small-molecule energy curves with Qiskit VQE and a classical reference.
-
+**Team ID:** `VTU-QFF-HC-0023` &nbsp;|&nbsp; **Tier:** Both
 
 </div>
 
 ---
 
+| Hackathon Detail | Information |
+| :--- | :--- |
+| **Team Name** | Anonymous |
+| **Team ID** | `VTU-QFF-HC-0023` |
+| **Tier** | Both |
+| **Repository** | [vtu-hc-anonymous](https://github.com/vtu-qiskit-fall-fest-2026/vtu-hc-anonymous) |
+| **Organisation** | [vtu-qiskit-fall-fest-2026](https://github.com/vtu-qiskit-fall-fest-2026) |
+| **Event** | VTU-Qiskit Fall Fest 2026 |
+
+---
+
 ## 📌 Table of Contents
 
-- [Team Members](#-team-members)
+- [Team Members](#-team-members-github-ids)
 - [Problem Statement](#-problem-statement)
 - [Proposed Solution](#-proposed-solution)
 - [Approach and Architecture](#-approach-and-architecture)
@@ -35,7 +43,7 @@ An interactive prototype for exploring small-molecule energy curves with Qiskit 
 
 ---
 
-## 👥 Team Members
+## 👥 Team Members (GitHub IDs)
 
 | # | Name | GitHub Username | Role |
 | :-- | :--- | :--- | :--- |
@@ -44,35 +52,41 @@ An interactive prototype for exploring small-molecule energy curves with Qiskit 
 
 > Confirm both members have accepted their repository collaborator invitations before submission.
 
-**Team:** Anonymous  
-**Team ID:** `VTU-QFF-HC-0023`  
-**Event:** VTU-Qiskit Fall Fest 2026  
-**Tier:** Both  
-**Repository:** [vtu-hc-anonymous](https://github.com/vtu-qiskit-fall-fest-2026/vtu-hc-anonymous)
-
----
-
 ## ❓ Problem Statement
 
 **Problem:** Battery research involves understanding the chemical species that can form at electrode–electrolyte interfaces and how their molecular properties relate to possible roles in battery materials. Experimental investigation and detailed materials modelling can be resource-intensive. Small-molecule quantum-chemistry calculations can help explore selected chemical interactions, but molecular calculations alone do not capture the behaviour of a complete battery material.
 
 **Why it matters:** An interactive tool can show how molecular energy changes with bond distance, compare VQE with a classical reference, and explain what more must be known before making claims about battery performance.
 
-**Track / Category:** Quantum Chemistry and Sensing. **Hackathon tier:** Both.
+**Track / Category:** Quantum Chemistry and Sensing.
+
+**Hackathon tier:** Both.
 
 ---
 
 ## 💡 Proposed Solution
 
-**Solution:** Q-Lithos is an interactive Streamlit dashboard for exploring small molecules. It uses Qiskit’s VQE method, compares its energies with a classical calculation, plots the results, and explains what they may—and may not—tell us about battery research.
+**Solution:** Q-Lithos is an interactive Streamlit dashboard for exploring small molecules. It uses Qiskit's Variational Quantum Eigensolver (VQE), compares its energies with a classical calculation, plots the results, and explains what they may—and may not—tell us about battery research.
 
 **Key idea:** Compare a quantum-algorithm calculation with a classical reference for the same small molecular model, then explain the results in plain language.
 
 **Why this approach:** The comparison shows how closely VQE matches the reference for the model being tested. The dashboard also makes clear that molecular results are not the same as real battery properties.
 
-**Current status:** A working dashboard prototype has been launched in Google Colab. Execution on physical IBM Quantum hardware has **not** been established by the project information available for this README.
+**Current status:** A working dashboard prototype has been launched in Google Colab. Execution on physical IBM Quantum hardware has not been established by the project information available for this README.
 
 ---
+
+## 🖥️ Demo Screenshots
+
+The screenshots below show the current Streamlit prototype. The simulation uses a local ideal statevector simulator; they are not evidence of execution on physical IBM Quantum hardware. Displayed numerical values should be treated as prototype outputs until the saved benchmark data and metric calculations have been validated.
+
+### Dashboard overview
+
+![Q-Lithos dashboard overview showing molecule selection, summary metrics, and navigation](docs/images/q-lithos-overview.png)
+
+### LiH quantum simulation
+
+![LiH potential energy curve and VQE comparison with a classical exact-diagonalization reference](docs/images/q-lithos-lih-simulation.png)
 
 ## 🧩 Approach and Architecture
 
@@ -138,13 +152,13 @@ anonymous/
 └── cache/                 # Cached scan results
 ```
 
-The dashboard’s battery-relevance discussion is implemented in the application; this ZIP does not contain a separate `battery_assessment.py` module. Cached scan results are included, so validate or regenerate them after changing metric definitions.
+The dashboard's battery-relevance discussion is implemented in the application; this ZIP does not contain a separate `battery_assessment.py` module. Cached scan results are included, so validate or regenerate them after changing metric definitions.
 
 ---
 
 ## 🧪 Molecules and Scope
 
-The project README identifies these four diatomic systems:
+The project identifies these four diatomic systems:
 
 | Molecule | Formula | Intended context in this prototype |
 | :--- | :---: | :--- |
@@ -153,7 +167,7 @@ The project README identifies these four diatomic systems:
 | Sodium fluoride | NaF | Fluoride-containing interphase chemistry context |
 | Dilithium | Li₂ | Homonuclear molecular benchmark; not a battery-material performance model |
 
-The calculations described are for **isolated diatomic molecules**, not periodic solids, full electrode–electrolyte interfaces, or complete battery cells. The active-space and qubit counts depend on the implemented model and should be checked against the current code/configuration.
+The calculations are for **isolated diatomic molecules**, not periodic solids, full electrode–electrolyte interfaces, or complete battery cells. The active-space and qubit counts depend on the implemented model and should be checked against the current code and configuration.
 
 ---
 
@@ -175,7 +189,7 @@ Q-Lithos compares the energy found by VQE with a classical exact-diagonalization
 
 **Chemical accuracy** is a commonly used target of about **1.6 mHa** (1 kcal/mol). To say a whole scan meets this target, every tested bond distance must have an absolute VQE error below the threshold. A low average error alone is not enough.
 
-The ZIP includes saved scan data, but those files may predate recent metric fixes. For that reason, this README does not present their numbers as freshly verified results. The saved Li₂ scan includes at least one error of about **4.02 mHa**, which is above the chemical-accuracy target. The other cached results should also be checked before quoting final numbers. The project should report mean and maximum absolute error for each molecule after its cache has been validated.
+The project ZIP contains saved scan results, but they may have been created before recent metric fixes. Therefore, the values below are not presented as newly verified benchmark results. The saved Li₂ scan includes an error of about **4.02 mHa** at a stretched bond distance, which is above the chemical-accuracy target. The other saved results also need to be checked before final numbers are quoted.
 
 | Molecule | What can be said responsibly right now? |
 | :--- | :--- |
@@ -341,7 +355,7 @@ git commit -m "docs: merge project and hackathon README"
 git push -u origin docs/merge-project-readme
 ```
 
-Open a pull request on GitHub and review the changes before merging. Follow the hackathon organizers’ repository workflow if it differs from these steps.
+Open a pull request on GitHub and review the changes before merging. Follow the hackathon organizers' repository workflow if it differs from these steps.
 
 Common commit prefixes:
 
@@ -409,6 +423,6 @@ This project is described as MIT-licensed in the existing project README. Confir
 
 Built with ⚛️ Qiskit for the VTU-Qiskit Fall Fest 2026 Hackathon.
 
-[⬆ Back to Top](#-q-lithos-hybrid-quantum-classical-simulation-engine-for-battery-materials)
+[⬆ Back to Top](#anonymous)
 
 </div>
