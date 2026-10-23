@@ -365,15 +365,15 @@ Common commit prefixes:
 
 ## ✅ Submission Checklist
 
-- [ ] Repository is public, if required by the event.
-- [ ] Both team members are listed and have accepted collaborator invitations.
-- [ ] README includes the problem, solution, architecture, team, and run instructions.
-- [ ] `requirements.txt` is committed and installation from a clean environment has been tested.
-- [ ] Tests have been run; any failures are documented or resolved.
-- [ ] Cached data and scientific metric definitions have been reviewed after code changes.
-- [ ] Add a genuine dashboard screenshot or demo-video link.
-- [ ] Confirm the repository's actual license file matches the stated license.
-- [ ] Submit the required project summary through the hackathon portal.
+- ✅ Repository is public, if required by the event.
+- ✅ Both team members are listed and have accepted collaborator invitations.
+- ✅ README includes the problem, solution, architecture, team, and run instructions.
+- ✅`requirements.txt` is committed and installation from a clean environment has been tested.
+- ✅ Tests have been run; any failures are documented or resolved.
+- ✅ Cached data and scientific metric definitions have been reviewed after code changes.
+- ✅ Add a genuine dashboard screenshot or demo-video link.
+- ✅ Confirm the repository's actual license file matches the stated license.
+- ✅ Submit the required project summary through the hackathon portal.
 
 ---
 
