@@ -2,6 +2,7 @@
 <div align="center">
 
 # Anonymous
+# Q-Lithos: Hybrid Quantum-Classical Simulation Engine
 
 **Team ID:** `VTU-QFF-HC-0023` &nbsp;|&nbsp; **Tier:** Both
 
