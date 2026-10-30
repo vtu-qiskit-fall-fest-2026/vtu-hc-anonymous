@@ -242,14 +242,16 @@ with st.sidebar:
     mol_def = get_molecule(selected_mol_name)
 
     # Category and Role Pill
-    
-# Expandable molecule information card
-with st.expander(
-    f"ℹ️ {mol_def.formula} • {mol_def.battery_role}",
-    expanded=True
-):
-    category = getattr(mol_def, "battery_category", None)
 
+# Expandable molecule information — LEFT SIDEBAR ONLY
+with st.sidebar.expander(
+    f"🧪 {mol_def.formula} — Molecule Details",
+    expanded=False
+):
+    st.markdown("### Battery Role")
+    st.write(mol_def.battery_role)
+
+    category = getattr(mol_def, "battery_category", None)
     if category is not None:
         category_label = getattr(category, "value", str(category))
         st.caption(f"Category: {category_label}")
@@ -258,10 +260,10 @@ with st.expander(
     st.write(mol_def.description)
 
     caveats = getattr(mol_def, "battery_caveats", None)
-
     if caveats:
         st.markdown("### Scientific Limitations")
         st.info(caveats)
+
 
 
     # Quantum Hardware Constraint HUD
