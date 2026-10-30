@@ -242,16 +242,27 @@ with st.sidebar:
     mol_def = get_molecule(selected_mol_name)
 
     # Category and Role Pill
-    st.markdown(
-        f"""
-        <div style="background: rgba(13, 27, 46, 0.8); padding: 12px; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.25); margin-bottom: 16px;">
-            <div style="font-weight: 700; color: #38bdf8; font-size: 0.95rem;">{mol_def.formula} • {mol_def.battery_role}</div>
-            <div style="font-size: 0.78rem; color: #a5f3fc; margin-top: 4px;"><strong>Category:</strong> {mol_def.category_label}</div>
-            <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">{mol_def.description[:130]}...</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    
+# Expandable molecule information card
+with st.expander(
+    f"ℹ️ {mol_def.formula} • {mol_def.battery_role}",
+    expanded=True
+):
+    category = getattr(mol_def, "battery_category", None)
+
+    if category is not None:
+        category_label = getattr(category, "value", str(category))
+        st.caption(f"Category: {category_label}")
+
+    st.markdown("### Chemical Description")
+    st.write(mol_def.description)
+
+    caveats = getattr(mol_def, "battery_caveats", None)
+
+    if caveats:
+        st.markdown("### Scientific Limitations")
+        st.info(caveats)
+
 
     # Quantum Hardware Constraint HUD
     st.markdown("#### ⚛️ Quantum Execution Profile")
