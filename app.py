@@ -263,6 +263,12 @@ with st.sidebar.expander(
     if caveats:
         st.markdown("### Scientific Limitations")
         st.info(caveats)
+        # Always-visible recompute button in LEFT SIDEBAR
+if st.sidebar.button(
+    "🔄 Recompute on Quantum Engine",
+    use_container_width=True
+):
+    # Keep your existing recomputation logic here
 
 
 
