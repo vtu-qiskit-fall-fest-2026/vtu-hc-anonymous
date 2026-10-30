@@ -264,13 +264,6 @@ with st.sidebar.expander(
         st.markdown("### Scientific Limitations")
         st.info(caveats)
         # Always-visible recompute button in LEFT SIDEBAR
-if st.sidebar.button(
-    "🔄 Recompute on Quantum Engine",
-    use_container_width=True
-):
-    # Keep your existing recomputation logic here
-
-
 
     # Quantum Hardware Constraint HUD
     st.markdown("#### ⚛️ Quantum Execution Profile")
@@ -291,16 +284,22 @@ if st.sidebar.button(
     )
 
     # Recomputation & Cache Management
-    st.markdown("---")
-    cache_path = get_cache_path(selected_mol_name)
-    has_cache = cache_path.exists()
+    
+# Always-visible recompute section in LEFT SIDEBAR
+st.sidebar.markdown("---")
 
-    if has_cache:
-        st.caption("⚡ Cache status: **Validated dataset ready**")
-    else:
-        st.caption("⚠️ Cache status: **Not yet computed**")
+cache_path = get_cache_path(selected_mol_name)
+has_cache = cache_path.exists()
 
-    recompute_btn = st.button("🔄 Recompute on VQE Engine", use_container_width=True)
+if has_cache:
+    st.sidebar.caption("⚡ Cache status: **Validated dataset ready**")
+else:
+    st.sidebar.caption("⚠️ Cache status: **Not yet computed**")
+
+recompute_btn = st.sidebar.button(
+    "🔄 Recompute on VQE Engine",
+    use_container_width=True
+)
 
 
 # ---------------------------------------------------------------------------
